@@ -2,6 +2,12 @@
 Changelog for package pilz_industrial_motion_testutils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.0 (2020-11-30)
+------------------
+* Remove cpp testutils (moved to moveit in noetic)
+* Update maintainer list
+* Contributors: Pilz GmbH and Co. KG
+
 0.6.0 (2020-11-20)
 ------------------
 * Move to new repo pilz_common
