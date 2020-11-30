@@ -1,0 +1,12 @@
+Source: ros-noetic-pilz-testutils
+Section: misc
+Priority: optional
+Maintainer: Alexander Gutenkunst <a.gutenkunst@pilz.de>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-pilz-utils, ros-noetic-roscpp, ros-noetic-sensor-msgs
+Homepage: https://wiki.ros.org/pilz_testutils
+Standards-Version: 3.9.2
+
+Package: ros-noetic-pilz-testutils
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: This package contains testing utilities used by Pilz packages.
