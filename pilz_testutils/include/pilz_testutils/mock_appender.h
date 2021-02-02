@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Pilz GmbH & Co. KG
+ * Copyright (c) 2021 Pilz GmbH & Co. KG
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ class MockAppender : public log4cxx::AppenderSkeleton
 public:
   ~MockAppender()
   {
+    close();
   }
 
 public:
@@ -60,10 +61,13 @@ public:
   void close() override
   {
   }
+
+  // LCOV_EXCL_START required by Base class
   bool requiresLayout() const override
   {
     return false;
   }
+  // LCOV_EXCL_STOP
 };
 
 #define GENERATE_LOGMESSAGE_MATCHER_P(level)                                                                           \
@@ -78,16 +82,23 @@ GENERATE_LOGMESSAGE_MATCHER_P(WARN)
 GENERATE_LOGMESSAGE_MATCHER_P(ERROR)
 GENERATE_LOGMESSAGE_MATCHER_P(FATAL)
 
-#define EXPECT_LOG(logger, level, msg) EXPECT_CALL(logger, internal_append(Is##level(msg), ::testing::_))
+#define EXPECT_LOG(logger, level, msg)                                                                                 \
+  EXPECT_EQ((logger).getName(), "MockAppender");                                                                       \
+  EXPECT_CALL(logger, internal_append(Is##level(msg), ::testing::_))
 
 }  // namespace pilz_testutils
 
-namespace log4cxx::spi
+namespace log4cxx
 {
+namespace spi
+{
+// LCOV_EXCL_START
 void PrintTo(const LoggingEventPtr& logging_event, std::ostream* os)
 {
   *os << logging_event->getLevel()->toString() << " \"" << logging_event->getMessage() << "\"";
 }
-}  // namespace log4cxx::spi
+// LCOV_EXCL_STOP
+}  // namespace spi
+}  // namespace log4cxx
 
 #endif  // MOCK_APPENDER_H
