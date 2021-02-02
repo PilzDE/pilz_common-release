@@ -2,6 +2,9 @@
 Changelog for package pilz_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.1 (2021-02-02)
+------------------
+
 0.7.0 (2020-11-30)
 ------------------
 * Remove msgs which have been moved to moveit for noetic
