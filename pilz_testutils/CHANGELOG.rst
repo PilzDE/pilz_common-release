@@ -2,16 +2,19 @@
 Changelog for package pilz_testutils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.2 (2021-02-10)
+------------------
+* Add pilz_testutils_coverage to CI job
+* Add unittest for joint_state_publisher_mock
+* Contributors: Pilz GmbH and Co. KG
+
 0.7.1 (2021-02-02)
 ------------------
 * Add missing header in service_client_mock.h
 * JointStatePublisherMock stop publishing in DTOR
+* Add unittests
 * Fix minor clang-tidy finding
 * Omit nested namespace definitions (c++17)
-* Contributors: Pilz GmbH and Co. KG
-
-* Add unittests
-* Minor fixes
 * Contributors: Pilz GmbH and Co. KG
 
 0.7.0 (2020-11-30)
